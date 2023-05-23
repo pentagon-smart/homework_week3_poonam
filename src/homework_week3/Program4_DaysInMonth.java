@@ -7,14 +7,26 @@ public class Program4_DaysInMonth {
     public static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
+Program4_DaysInMonth obj = new Program4_DaysInMonth();
+        System.out.print("Input a year: ");
+        int year = input.nextInt();
+
+        boolean isLeapYear = obj.isLeapYear(year);
+        if(year>=9999 || year<1 )
+        {
+            System.out.println("Parameter is invalid");
+        }
+        else {
+            System.out.println("This Leap Year : " + isLeapYear);
+        }
+
+        System.out.print("Input a month number: ");
+        int month = input.nextInt();
 
 
-        System.out.println(isLeapYear(-1600));
-        System.out.println(isLeapYear(1600));
-        System.out.println(isLeapYear(2017));
-        System.out.println(isLeapYear(2000));
 
-        getDaysInMonth();
+        int dayOfMonth = obj.getDaysInMonth(month, year);
+        System.out.println("day Of Month : " + dayOfMonth);
 
     }
 
@@ -29,16 +41,12 @@ public class Program4_DaysInMonth {
         return a;
     }
 
-    public static int getDaysInMonth() {
+    public int getDaysInMonth(int month, int year) {
 
         int number_Of_DaysInMonth = 0;
         String MonthOfName = "Unknown";
 
-        System.out.print("Input a month number: ");
-        int month = input.nextInt();
 
-        System.out.print("Input a year: ");
-        int year = input.nextInt();
         if (month < 1 || month > 12) {
             System.out.println("The parameter month is invalid.");
         } else if (year < 1 || year > 9999) {
@@ -106,6 +114,6 @@ public class Program4_DaysInMonth {
             System.out.println(isLeapYear(year) ? year + " is Leap Year" :
                     year + " is not a Leap Year");
         }
-        return getDaysInMonth();
+        return -1;
     }
 }
